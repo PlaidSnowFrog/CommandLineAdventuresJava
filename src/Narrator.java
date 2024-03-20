@@ -26,7 +26,6 @@ public class Narrator {
 			switch (choice) {
 			case 1:
 				System.out.println("You walk through the door, as you do it disappears behind you, you are no longer in a blank space, but you are in a forest");
-				System.out.println("You need to find a shelter if you want to survive...");
 				return 1;
 			case 2:
 				System.out.println("After a while, the door disappears, you are now trapped forever in this endless void");
@@ -39,8 +38,6 @@ public class Narrator {
 		
 		return 0; // This should not be returned
 	}
-	
-	// TODO Add Walk through the door route
 	
 	// Give up route
 	public static int Trapped() {
@@ -117,5 +114,56 @@ public class Narrator {
 		} while (choice != 1 && choice != 2);
 		
 		return 0; // This should not be returned
+	}
+	
+	
+	// Walk through the door route
+	public static int JustWalked() {
+		Scanner scan = new Scanner(System.in);
+		int choice;
+		
+		do {
+			System.out.println("Will you\n1 - Explore\n2 - Look for shelter");
+			choice = scan.nextInt();
+			
+			switch (choice) {
+			case 1:
+				System.out.println("You begin exploring, after a while, you find an abbandoned house");
+				return 6;
+			case 2:
+				System.out.println("You look for shelter and after a while, you find a cave near a lake");
+				return 7;
+			default:
+				System.out.println("Invalid input");
+				break;
+			}
+		} while (choice != 1 && choice != 2);
+		
+		return 0; // This should not be returned
+	}
+	
+	public static int FoundHouse() {
+		Scanner scan = new Scanner(System.in);
+		int choice;
+		
+		do {
+			System.out.println("Will you\n1 - Go and see what's inside\n2 - Go and explore somewhere else");
+			choice = scan.nextInt();
+			
+			switch (choice) {
+			case 1:
+				System.out.println("You go inside and find out that house is not abbandoned at all!");
+				System.out.println("It's full of other people in the same situation as you, they welcome you and you all live peaceful lives together");
+				return 8;
+			case 2:
+				System.out.println("After a while of searching, you find another door, you trip and fall into it, you are now in the same situation as before");
+				return 0;
+			default:
+				System.out.println("Invalid input");
+				break;
+			}
+		} while (choice != 1 && choice !=2);
+		
+		return 0;
 	}
 }
