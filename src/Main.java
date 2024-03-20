@@ -16,14 +16,21 @@ public class Main {
 				break;
 			// Beginning
 			case 1: // Go through the door
-				System.out.println("Coming soon...");
-				comingSoon = true;
-				run = false;
+				choice = Narrator.JustWalked();
 				break;
 			case 2: // Give up
 				choice = Narrator.Trapped();
 				break;
 			
+			// Went through the door
+			case 6: // Explore
+				choice = Narrator.FoundHouse();
+				break;
+			case 7: // Look for shelter
+				comingSoon = true;
+				run = false;
+				break;
+				
 			// Trapped
 			case 3: // Look for another way out
 				choice = Narrator.FoundBlackDot();
@@ -31,15 +38,19 @@ public class Main {
 			case 4: // Give up
 				choice = Narrator.BecomeBlackDot();
 				break;
-				
+			
+			
 			// Lose
 			case 5:
 				run = false;
+				break;
 			}
 		}
 		
 		if (!comingSoon) {
 			System.out.println("GAME OVER!");
+		} else {
+			System.out.println("Coming Soon!");
 		}
 		
 	}
